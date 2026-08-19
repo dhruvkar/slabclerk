@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SlabClerk reads your slab system overnight — inventory, holds, receivables, containers — and hands every seat in the company its morning email by 7am, follow-ups drafted.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#129704;</text></svg>">
+<title>SlabClerk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,500;10..72,600;10..72,700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F5F4F0;
+    --report-bg: #EFEDE7;
+    --ink: #1B2025;
+    --ink-soft: #59616A;
+    --ink-faint: #8A9099;
+    --rule: #DAD8D1;
+    --rule-strong: #B9B7AE;
+    --stamp: #B0392C;
+    --shadow: rgba(27, 32, 37, 0.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14171B;
+      --report-bg: #10141A;
+      --ink: #E8E6E0;
+      --ink-soft: #A0A7AE;
+      --ink-faint: #6E757D;
+      --rule: #2C323A;
+      --rule-strong: #414952;
+      --stamp: #E0604C;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14171B;
+    --report-bg: #10141A;
+    --ink: #E8E6E0;
+    --ink-soft: #A0A7AE;
+    --ink-faint: #6E757D;
+    --rule: #2C323A;
+    --rule-strong: #414952;
+    --stamp: #E0604C;
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  h1, h2 {
+    font-family: "Big Shoulders", "Arial Narrow", "Helvetica Neue", sans-serif;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  /* ---------- masthead ---------- */
+  header {
+    border-bottom: 2px solid var(--ink);
+    padding: 1.1rem 0;
+  }
+  .masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: "Big Shoulders", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: 1.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .masthead .tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    padding: 5rem 0 3.75rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.7rem, 7vw, 4.6rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    max-width: 18ch;
+  }
+  .hero .lede {
+    max-width: 36rem;
+    margin: 1.75rem 0 0;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+  }
+  .hero .lede strong { color: var(--ink); font-weight: 600; }
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2.25rem;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Big Shoulders", "Arial Narrow", sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.8rem 1.7rem;
+    border: 2px solid var(--ink);
+  }
+  .btn:hover { background: var(--stamp); border-color: var(--stamp); color: #FBFAF7; }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--stamp); outline-offset: 3px; }
+  .cta-note {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- report specimen ---------- */
+  .report-frame {
+    position: relative;
+    margin: 0 0 5rem;
+  }
+  .report {
+    background: var(--report-bg);
+    border: 1px solid var(--rule-strong);
+    box-shadow: 0 12px 32px var(--shadow);
+    overflow-x: auto;
+  }
+  .report-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.4rem;
+    border-bottom: 1px solid var(--rule-strong);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    min-width: 44rem;
+  }
+  .report-head b { color: var(--ink); font-weight: 600; }
+  .report table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 44rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+  }
+  .report td {
+    padding: 0.6rem 1.4rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  .report tr:last-child td { border-bottom: none; }
+  .report .cat {
+    color: var(--stamp);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    width: 11rem;
+  }
+  .report .detail { color: var(--ink); white-space: normal; min-width: 20rem; }
+  .report .flag { color: var(--ink-soft); text-align: right; }
+  .stamp {
+    position: absolute;
+    top: -1.1rem;
+    right: 1.2rem;
+    transform: rotate(-5deg);
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    border: 2px solid var(--stamp);
+    background: var(--paper);
+    padding: 0.3rem 0.75rem 0.3rem 1rem;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 4.25rem 0; border-top: 1px solid var(--rule); }
+  section h2 {
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.08;
+    max-width: 24ch;
+  }
+  .section-lede {
+    max-width: 40rem;
+    color: var(--ink-soft);
+    margin: 1.25rem 0 0;
+  }
+  .section-lede strong { color: var(--ink); font-weight: 600; }
+
+  /* seats */
+  .seats { margin-top: 2.75rem; display: grid; }
+  .seat {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 1.5rem;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .seat:last-of-type { border-bottom: none; }
+  .seat .to {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    padding-top: 0.3rem;
+  }
+  .seat p { margin: 0; color: var(--ink-soft); max-width: 38rem; }
+  .seat p strong { color: var(--ink); font-weight: 600; }
+  .iceberg-tail {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--rule);
+    margin: 0;
+    padding: 1.35rem 0 0;
+    max-width: 44rem;
+  }
+
+  /* asks */
+  .asks {
+    margin: 2.75rem 0 0;
+    display: grid;
+    max-width: 44rem;
+  }
+  .ask {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--ink);
+    padding: 1rem 0 1rem 1.6rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .ask:last-child { border-bottom: none; }
+  .ask::before {
+    content: ">";
+    position: absolute;
+    left: 0.1rem;
+    color: var(--stamp);
+    font-weight: 600;
+  }
+  .asks-tail {
+    max-width: 40rem;
+    color: var(--ink-soft);
+    margin: 1.75rem 0 0;
+  }
+  .asks-tail strong { color: var(--ink); font-weight: 600; }
+
+  /* fit list */
+  .fit-list {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    max-width: 40rem;
+    display: grid;
+    gap: 1.1rem;
+  }
+  .fit-list li { color: var(--ink-soft); }
+  .fit-list li strong { color: var(--ink); font-weight: 600; }
+
+  /* founder note */
+  .note {
+    margin-top: 2.75rem;
+    max-width: 40rem;
+    border-left: 3px solid var(--stamp);
+    padding: 0.25rem 0 0.25rem 1.75rem;
+  }
+  .note p { margin: 0 0 1.1rem; color: var(--ink-soft); }
+  .note p strong { color: var(--ink); font-weight: 600; }
+  .note .sig {
+    font-family: "Big Shoulders", "Arial Narrow", sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+  }
+  .note .sig-role {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 0.2rem;
+  }
+
+  /* closing */
+  .closing {
+    padding: 4.5rem 0 5rem;
+    border-top: 2px solid var(--ink);
+  }
+  .closing h2 {
+    font-size: clamp(2.3rem, 6vw, 3.6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.05;
+    max-width: 18ch;
+  }
+  .closing .section-lede { max-width: 38rem; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 0 2.5rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 44rem) {
+    .seat { grid-template-columns: 1fr; gap: 0.4rem; }
+    .stamp { top: -0.9rem; right: 0.6rem; font-size: 0.7rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero h1, .hero .lede, .cta-row { animation: rise 0.55s ease-out both; }
+    .hero .lede { animation-delay: 0.08s; }
+    .cta-row { animation-delay: 0.16s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="masthead">
+      <div class="brand">SlabClerk</div>
+      <div class="tag">For stone importers &amp; slab distributors</div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Somewhere on your racks, a bundle just turned 300&nbsp;days old.</h1>
+    <p class="lede">Your slab system already knows which one. It knows which holds expired, which invoice is 74 days out, which sold orders still have no truck date, and which container slipped its ETA. SlabClerk reads all of it overnight and hands you one email by 7am — <strong>the exceptions, with the follow-ups already drafted.</strong> And when you want something done, you hit reply.</p>
+    <div class="cta-row">
+      <a class="btn" href="#walkthrough">See your own numbers</a>
+      <span class="cta-note">One walkthrough · your data, not a slideshow</span>
+    </div>
+  </div>
+
+  <div class="report-frame">
+    <div class="stamp">Sample</div>
+    <div class="report">
+      <div class="report-head">
+        <span><b>Morning report</b> · owner's copy — Tuesday 7:02 AM</span>
+        <span>6 items need your eyes</span>
+      </div>
+      <table>
+        <tr>
+          <td class="cat">DEAD STOCK</td>
+          <td class="detail">B-2214 · Taj Mahal 3cm · 9 slabs</td>
+          <td class="flag">287 days, no movement</td>
+        </tr>
+        <tr>
+          <td class="cat">GHOST HOLD</td>
+          <td class="detail">H-0452 · Calacatta Lasa · "still need this?" note drafted</td>
+          <td class="flag">expired 12 days ago</td>
+        </tr>
+        <tr>
+          <td class="cat">PAST DUE</td>
+          <td class="detail">INV-45102 · third reminder drafted, firmer than the last</td>
+          <td class="flag">74 days out</td>
+        </tr>
+        <tr>
+          <td class="cat">DISPATCH</td>
+          <td class="detail">2 sold orders have no pick ticket — added to tomorrow's delivery plan</td>
+          <td class="flag">promised this week</td>
+        </tr>
+        <tr>
+          <td class="cat">TRACK &amp; TRACE</td>
+          <td class="detail">ETA slipped 6 days at Savannah — two open orders waiting</td>
+          <td class="flag">carrier updated 2:47 AM</td>
+        </tr>
+        <tr>
+          <td class="cat">NEW ARRIVALS</td>
+          <td class="detail">Saturday's container · 22 bundles · announcement drafted with photos</td>
+          <td class="flag">awaiting your OK</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <section>
+    <h2>Everyone opens a different email.</h2>
+    <p class="section-lede">This isn't a report for the boss. At 7:02, every seat in the company gets its own briefing, built from its own book and <strong>ranked by what it's worth, not what came in last</strong>. Nobody logs into anything, nobody triages — the most valuable work of the day is at the top of each inbox, and everything lands as a draft first. <strong>Nothing goes out without an OK.</strong></p>
+
+    <div class="seats">
+      <div class="seat">
+        <span class="to">To: You</span>
+        <p><strong>The whole yard.</strong> Every leak across inventory, receivables, dispatch, and containers — plus which of yesterday's flags got handled and which are still sitting.</p>
+      </div>
+      <div class="seat">
+        <span class="to">To: Each rep</span>
+        <p><strong>Their book, sorted by money.</strong> Quiet accounts, unanswered proformas, holds about to expire, and the customer who asked for Taj Mahal in June — the day a fresh lot lands. Follow-ups drafted in their name.</p>
+      </div>
+      <div class="seat">
+        <span class="to">To: The office</span>
+        <p><strong>Who to call today.</strong> Reminders queued on the invoices worth the most, certs about to expire, and the accounts to pause before their next pickup.</p>
+      </div>
+      <div class="seat">
+        <span class="to">To: Purchasing</span>
+        <p><strong>What's on the water, what's running thin.</strong> Overnight track &amp; trace, arrival notices matched to their POs, reorder drafts on fast movers, and the quarry order confirmed months ago that still hasn't sailed.</p>
+      </div>
+      <div class="seat">
+        <span class="to">To: The warehouse</span>
+        <p><strong>Which trucks go where.</strong> Tomorrow's delivery plan built from open pick tickets and promised dates, loading worksheets in load order, what's landing this week and where it stages — and every customer told their slabs are on tomorrow's truck.</p>
+      </div>
+    </div>
+
+    <p class="iceberg-tail">And that's the tip of the iceberg — markdown suggestions on aging stock, new-arrival announcements, win-backs, discount drift, lot-mismatch warnings, receiving claims, remnant lists, resale certs. Ask for the full sheet on the walkthrough.</p>
+  </section>
+
+  <section>
+    <h2>Hit reply.</h2>
+    <p class="section-lede">The morning email isn't just a report — it's a line to the agent behind it. Reply, or message it any time of day, and ask for anything your system knows or does. <strong>Anything you'd do in there one screen at a time, you can now say in one sentence</strong> — and it handles several at once, stringing the steps together itself.</p>
+
+    <div class="asks">
+      <div class="ask">Price 3cm Taj Mahal for Elite Granite — their tier, delivered.</div>
+      <div class="ask">What did we actually clear on the last Alaska White container, landed?</div>
+      <div class="ask">Raise Fantasy Brown 2cm list 6% and send the reps the new sheet.</div>
+      <div class="ask">Offer the 280-day bundles at 20% off to every fabricator who's bought quartzite this year.</div>
+      <div class="ask">Collection notices to everyone past 60 days — skip the two on payment plans.</div>
+    </div>
+
+    <p class="asks-tail">Each one comes back done or drafted — the bundles found, the buyers matched, the prices set, forty emails queued for your OK. <strong>Work that took an afternoon of screens takes a sentence.</strong></p>
+  </section>
+
+  <section>
+    <h2>Runs on what you already run.</h2>
+    <ul class="fit-list">
+      <li><strong>No rip-and-replace.</strong> It reads the slab platform you already pay for. Your team's screens, logins, and habits don't change, and there's nothing to migrate. If your yard runs on one of the major slab platforms, setup is measured in days.</li>
+      <li><strong>Speaks slab.</strong> Bundles, serialized slabs, blocks, lots, holds, proformas, pick tickets, landed cost — it reads inventory the way stone is actually tracked.</li>
+      <li><strong>Draft-first by design.</strong> It watches, drafts, and acts — but it only ever sends an email or writes into your system when you've approved it, and every action is logged.</li>
+    </ul>
+
+    <div class="note">
+      <p>I spent eight years running operations and IT inside my family's stone distribution business — same platform most importers run, same proformas, same holds list, same aging report nobody had time to open. <strong>I built this for our yard first.</strong> Now I set it up for other importers, a few at a time, personally.</p>
+      <p class="sig">Dhruv Kar</p>
+      <p class="sig-role">Founder, SlabClerk</p>
+    </div>
+  </section>
+
+  <div class="closing" id="walkthrough">
+    <h2>Bring your yard. I'll show you what's leaking.</h2>
+    <p class="section-lede">One working session. We pull your own aging, your own holds, your own receivables — you see your morning report built from your data, and you ask it your own questions, live, before you pay for anything. <strong>If nothing's leaking, you'll sleep better. If something is, you'll know by morning.</strong></p>
+    <div class="cta-row">
+      <a class="btn" href="#walkthrough">Book a walkthrough</a>
+      <span class="cta-note">Limited setups per month — every yard is wired up personally</span>
+    </div>
+  </div>
+
+  <footer>
+    <span>SlabClerk</span>
+    <span>Watching the yard since it was ours</span>
+  </footer>
+</div>
+</body>
+</html>
