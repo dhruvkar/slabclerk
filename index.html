@@ -63,7 +63,7 @@
     padding: 0 1.5rem;
   }
 
-  h1, h2 {
+  h1, h2, h3 {
     font-family: "Big Shoulders", "Arial Narrow", "Helvetica Neue", sans-serif;
     text-wrap: balance;
     margin: 0;
@@ -296,6 +296,32 @@
     box-shadow: 0 12px 32px var(--shadow);
   }
 
+  /* automations */
+  .autos { display: grid; gap: 3.25rem; margin-top: 2.75rem; }
+  .auto video {
+    display: block;
+    width: 100%;
+    max-width: 44rem;
+    border: 1px solid var(--rule-strong);
+    box-shadow: 0 12px 32px var(--shadow);
+  }
+  .auto h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-top: 1.2rem;
+  }
+  .auto p { margin: 0.35rem 0 0.65rem; color: var(--ink-soft); max-width: 38rem; }
+  .more {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--stamp);
+    text-decoration: none;
+  }
+  .more:hover { text-decoration: underline; }
+
   /* fit list */
   .fit-list {
     list-style: none;
@@ -484,6 +510,33 @@
     <p class="asks-tail"><strong>It takes attachments, too.</strong> Forward a proforma and packing list — the PO is entered line by line. Forward the invoice — matched, mismatches flagged. Forward the freight bill — booked into landed cost. <strong>The typing is the clerk's job now.</strong></p>
 
     <video class="demo" autoplay muted loop playsinline preload="metadata" src="assets/clerk-demo.mp4" aria-label="Demo: forwarding supplier docs to SlabClerk, which enters the PO, arms track and trace, and assigns the carrier — awaiting your OK"></video>
+  </section>
+
+  <section>
+    <h2>Watch it work.</h2>
+
+    <div class="autos">
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/container-watchdog.mp4" aria-label="Demo: Container Watchdog"></video>
+        <h3>Container Watchdog</h3>
+        <p>Track &amp; trace on every box — and the demurrage clock beaten before it starts.</p>
+        <a class="more" href="/automations/container-watchdog/">Read more &rarr;</a>
+      </div>
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/collections-clerk.mp4" aria-label="Demo: Collections Clerk"></video>
+        <h3>Collections Clerk</h3>
+        <p>Your aged receivables, chased account by account — drafted nightly, tracked to paid.</p>
+        <a class="more" href="/automations/collections-clerk/">Read more &rarr;</a>
+      </div>
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/slab-offer-desk.mp4" aria-label="Demo: Slab Offer Desk"></video>
+        <h3>Slab Offer Desk</h3>
+        <p>Every supplier offer, priced apples-to-apples and answered the same day.</p>
+        <a class="more" href="/automations/slab-offer-desk/">Read more &rarr;</a>
+      </div>
+    </div>
+
+    <p class="iceberg-tail">Twelve more where these came from — <a class="more" href="/automations/">all automations &rarr;</a></p>
   </section>
 
   <section>
