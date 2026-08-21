@@ -62,3 +62,24 @@ export const slabOfferDesk: DemoConfig = {
   ],
   stampText: "Awaiting your OK",
 };
+
+export const poEntry: DemoConfig = {
+  mode: "compose",
+  headerLeft: "New message",
+  headerRight: "7:41 AM",
+  fieldLabel: "To:",
+  fieldValue: "clerk@slabclerk.com",
+  subject: "Fwd: Taj Mahal container — supplier docs",
+  chips: ["proforma_TD-038.pdf", "packing_list_SLD2.pdf"],
+  bodyText:
+    "Enter the PO and schedule delivery — 22 bundles landing Savannah Thursday.",
+  items: [
+    { text: "Attachments read — proforma + packing list", detail: "2 files" },
+    { text: "Prices checked against the order", detail: "3cm Taj Mahal" },
+    { text: "Purchase order entered — 22 bundles, 187 slabs", detail: "PO-260521" },
+    { text: "Track & trace armed — ETA Savannah, Thu", detail: "MSKU 884-2210" },
+    { text: "Drayage carrier assigned — delivery scheduled", detail: "2 stops" },
+    { text: "Reply drafted to you", detail: "for your OK" },
+  ],
+  stampText: "Awaiting your OK",
+};

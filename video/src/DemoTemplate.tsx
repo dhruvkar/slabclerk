@@ -66,8 +66,8 @@ const Chip: React.FC<{ label: string; appearAt: number }> = ({
         background: C.reportBg,
         color: C.ink,
         fontFamily: MONO,
-        fontSize: 15,
-        padding: "6px 14px",
+        fontSize: 19,
+        padding: "8px 16px",
         display: "inline-block",
         marginRight: 12,
         marginBottom: 8,
@@ -120,7 +120,7 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
     >
       <div
         style={{
-          width: 780,
+          width: 980,
           background: C.card,
           border: `1px solid ${C.ruleStrong}`,
           boxShadow: "0 18px 48px rgba(27,32,37,0.12)",
@@ -130,10 +130,10 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
       >
         <div
           style={{
-            padding: "14px 26px",
+            padding: "15px 30px",
             borderBottom: `1px solid ${C.ruleStrong}`,
             fontFamily: MONO,
-            fontSize: 14,
+            fontSize: 17,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
             color: C.soft,
@@ -145,13 +145,13 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
           <span style={{ color: C.faint }}>{config.headerRight}</span>
         </div>
 
-        <div style={{ padding: "20px 26px 26px" }}>
+        <div style={{ padding: "22px 30px 30px" }}>
           <div
             style={{
               fontFamily: MONO,
-              fontSize: 16,
+              fontSize: 22,
               color: C.ink,
-              paddingBottom: 10,
+              paddingBottom: 12,
               borderBottom: `1px solid ${C.rule}`,
             }}
           >
@@ -161,9 +161,9 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
           <div
             style={{
               fontFamily: MONO,
-              fontSize: 16,
+              fontSize: 22,
               color: C.ink,
-              padding: "10px 0",
+              padding: "12px 0",
               borderBottom: `1px solid ${C.rule}`,
             }}
           >
@@ -180,10 +180,10 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
           <div
             style={{
               fontFamily: MONO,
-              fontSize: 17,
-              lineHeight: 1.7,
+              fontSize: 24,
+              lineHeight: 1.65,
               color: C.ink,
-              minHeight: 60,
+              minHeight: 84,
               paddingTop: 14,
             }}
           >
@@ -192,8 +192,8 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
               <span
                 style={{
                   display: "inline-block",
-                  width: 10,
-                  height: 20,
+                  width: 13,
+                  height: 26,
                   background: cursorOn ? C.stamp : "transparent",
                   verticalAlign: "text-bottom",
                   marginLeft: 2,
@@ -208,12 +208,12 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
                 style={{
                   fontFamily: DISPLAY,
                   fontWeight: 600,
-                  fontSize: 24,
+                  fontSize: 28,
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   background: sendBg,
                   color: C.card,
-                  padding: "10px 34px",
+                  padding: "12px 40px",
                   transform: `scale(${sendScale})`,
                 }}
               >
@@ -238,8 +238,8 @@ const CheckRow: React.FC<{ item: DemoItem; at: number }> = ({ item, at }) => {
       style={{
         display: "flex",
         alignItems: "center",
-        gap: 18,
-        padding: "15px 0",
+        gap: 22,
+        padding: "18px 0",
         borderBottom: `1px solid ${C.rule}`,
         opacity: visible ? s : 0,
         transform: `translateY(${visible ? (1 - s) * 14 : 14}px)`,
@@ -247,14 +247,14 @@ const CheckRow: React.FC<{ item: DemoItem; at: number }> = ({ item, at }) => {
     >
       <div
         style={{
-          width: 22,
-          height: 22,
+          width: 28,
+          height: 28,
           border: `2px solid ${C.stamp}`,
           color: C.stamp,
           fontFamily: MONO,
           fontWeight: 600,
-          fontSize: 16,
-          lineHeight: "20px",
+          fontSize: 20,
+          lineHeight: "26px",
           textAlign: "center",
           flexShrink: 0,
         }}
@@ -262,11 +262,11 @@ const CheckRow: React.FC<{ item: DemoItem; at: number }> = ({ item, at }) => {
         {"✓"}
       </div>
       <div
-        style={{ fontFamily: MONO, fontSize: 17, color: C.ink, flexGrow: 1 }}
+        style={{ fontFamily: MONO, fontSize: 23, color: C.ink, flexGrow: 1 }}
       >
         {item.text}
       </div>
-      <div style={{ fontFamily: MONO, fontSize: 15, color: C.faint }}>
+      <div style={{ fontFamily: MONO, fontSize: 19, color: C.faint }}>
         {item.detail}
       </div>
     </div>
@@ -298,7 +298,7 @@ const ChecklistScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
       <div
         style={{
-          width: 860,
+          width: 1060,
           background: C.reportBg,
           border: `1px solid ${C.ruleStrong}`,
           boxShadow: "0 18px 48px rgba(27,32,37,0.12)",
@@ -309,10 +309,10 @@ const ChecklistScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
       >
         <div
           style={{
-            padding: "14px 30px",
+            padding: "16px 34px",
             borderBottom: `1px solid ${C.ruleStrong}`,
             fontFamily: MONO,
-            fontSize: 14,
+            fontSize: 17,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
             color: C.soft,
@@ -328,7 +328,7 @@ const ChecklistScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
           </span>
         </div>
 
-        <div style={{ padding: "10px 30px 84px" }}>
+        <div style={{ padding: "12px 34px 96px" }}>
           {config.items.map((item, i) => (
             <CheckRow key={item.text} item={item} at={t.firstItem + i * 33} />
           ))}
@@ -343,13 +343,13 @@ const ChecklistScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
               transform: `rotate(-5deg) scale(${stampS})`,
               fontFamily: MONO,
               fontWeight: 600,
-              fontSize: 22,
-              letterSpacing: "0.28em",
+              fontSize: 26,
+              letterSpacing: "0.26em",
               textTransform: "uppercase",
               color: C.stamp,
               border: `3px solid ${C.stamp}`,
               background: C.paper,
-              padding: "8px 18px 8px 26px",
+              padding: "10px 22px 10px 30px",
             }}
           >
             {config.stampText}
