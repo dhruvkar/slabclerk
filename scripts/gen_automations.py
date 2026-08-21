@@ -8,41 +8,41 @@ PAGES = [
     {
         "slug": "container-watchdog",
         "title": "Container Watchdog",
-        "lede": "Track &amp; trace on every box — and the demurrage clock beaten before it starts.",
+        "lede": "Every box tracked, and the demurrage clock counted down before it costs you money.",
         "video": "/assets/container-watchdog.mp4",
         "bullets": [
-            ("Reads arrival notices as they land.", "Container, PO, and HBL matched to your system the minute the forwarder's email arrives."),
-            ("Counts down the free days.", "Last free day computed from the notice — you hear about the clock days before it costs money, not on the demurrage invoice."),
-            ("Chases the whole cycle.", "ETA changes, pickup numbers, drayage scheduling, empty returns — drafted and sent on your OK."),
+            ("Reads arrival notices as they land.", "It matches container, PO, and HBL to your system the minute the forwarder's email arrives."),
+            ("Counts down the free days.", "It works out the last free day from the notice itself, so you hear about the clock days ahead instead of finding it on a demurrage bill."),
+            ("Chases the whole cycle.", "ETA changes, pickup numbers, drayage, empty returns. Everything gets drafted and sent on your OK."),
             ("Knows what's waiting.", "Every open order tied to the box, so a slipped sailing tells the right customer, not just you."),
         ],
-        "evidence": "At one four-branch importer we studied, the owner's reply to a demurrage invoice was three words and three exclamation points — the charges had accrued before anyone saw the clock. The watchdog counts free days from the arrival notice, not from the bill.",
+        "evidence": "At one four-branch importer we studied, the owner's reply to a demurrage invoice was three words and three exclamation points. The charges had already accrued before anyone saw the clock. The watchdog counts free days from the arrival notice, not from the bill.",
     },
     {
         "slug": "collections-clerk",
         "title": "Collections Clerk",
-        "lede": "Your aged receivables, chased account by account — drafted nightly, tracked to paid.",
+        "lede": "Chases your aged receivables account by account, and tracks every promise until it's paid.",
         "video": "/assets/collections-clerk.mp4",
         "bullets": [
             ("One drafted email per account.", "Invoice rows and links pulled from your system, in your voice, addressed to the person who owes you."),
             ("Routed to the rep who owns the account.", "Your office copied, so collections and sales stop working from different lists."),
             ("Promises tracked.", "Follow-ups fire on day 7 and day 14 automatically; payment plans and disputes are excluded without being told twice."),
-            ("Escalates only silence.", "You see the accounts that ignored three notes — not the forty that needed one."),
+            ("Escalates only silence.", "You see the accounts that ignored three notes, not the forty that needed one."),
         ],
-        "evidence": "One owner we watched sat down and hand-typed forty collection emails in a day — each one aged-invoice rows copied out of the ERP — then spent two weeks personally chasing replies. That is a nightly draft run now.",
+        "evidence": "One owner we watched sat down and hand-typed forty collection emails in a single day, each one built from aged-invoice rows he copied out of the ERP. Then he spent two weeks chasing the replies himself. That whole cycle is a nightly draft run now.",
     },
     {
         "slug": "slab-offer-desk",
         "title": "Slab Offer Desk",
-        "lede": "Every supplier offer, priced apples-to-apples and answered the same day.",
+        "lede": "Turns every supplier photo blast into an apples-to-apples price and drafts your answer the same day.",
         "video": "/assets/slab-offer-desk.mp4",
         "bullets": [
             ("Reads the photo blasts.", "Bundles, sizes, and lot numbers extracted from the pictures quarries actually send."),
-            ("Normalizes to your unit.", "$/sqft FOB with a landed estimate alongside — every offer comparable at a glance."),
-            ("Checks your racks first.", "Flags the color you're already deep in and the thickness that moves faster in your market."),
-            ("Drafts the answer.", "The counter with bundle numbers and your price — or the standard data request when the supplier left out sizes or FOB."),
+            ("Normalizes to your unit.", "$/sqft FOB with a landed estimate alongside, so every offer is comparable at a glance."),
+            ("Checks your racks first.", "It flags the color you're already deep in and the thickness that moves faster in your market."),
+            ("Drafts the answer.", "The counter with bundle numbers and your price, or the standard data request when the supplier left out sizes or FOB."),
         ],
-        "evidence": "The purchasing head at one importer answered sixty-two offer threads in a single week — retyping bundle numbers off supplier photos into every reply. The desk reads the photos, so he only picks and prices.",
+        "evidence": "The purchasing head at one importer answered sixty-two offer threads in one week, and every reply meant retyping bundle numbers off the supplier's photos. The desk reads the photos. He just picks and prices.",
     },
 ]
 
@@ -200,7 +200,7 @@ def index_html():
         + f"""
   <div class="hero">
     <h1>What the clerk handles.</h1>
-    <p class="lede">Each of these was watched in a real importer's inbox before it was built. <strong>Twelve more are on the full sheet — ask on the walkthrough.</strong></p>
+    <p class="lede">Each of these was watched in a real importer's inbox before it was built. <strong>There are twelve more on the full sheet; ask on the walkthrough.</strong></p>
   </div>
 
   <ul class="index-list">

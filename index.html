@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="SlabClerk reads your slab system overnight — inventory, holds, receivables, containers — and hands every seat in the company its morning email by 7am, follow-ups drafted.">
+<meta name="description" content="SlabClerk reads your slab system overnight and hands every seat in the company its morning email by 7am, follow-ups drafted.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#129704;</text></svg>">
 <title>SlabClerk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -414,7 +414,7 @@
 
   <div class="hero">
     <h1>Somewhere on your racks, a bundle just turned 300&nbsp;days old.</h1>
-    <p class="lede">Your slab system already knows which one. SlabClerk reads it overnight and hands you one email by 7am — <strong>the exceptions, follow-ups already drafted.</strong> Want something done? Hit reply.</p>
+    <p class="lede">Your slab system already knows which one. SlabClerk reads it overnight and hands you one email by 7am: <strong>the exceptions, with the follow-ups already drafted.</strong> When you want something done, you reply to it.</p>
     <div class="cta-row">
       <a class="btn" href="#walkthrough">See your own numbers</a>
       <span class="cta-note">One walkthrough · your data, not a slideshow</span>
@@ -464,38 +464,65 @@
   </div>
 
   <section>
+    <h2>Watch it work.</h2>
+
+    <div class="autos">
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/container-watchdog.mp4" aria-label="Demo: Container Watchdog"></video>
+        <h3>Container Watchdog</h3>
+        <p>Every box tracked, and the demurrage clock counted down before it costs you money.</p>
+        <a class="more" href="/automations/container-watchdog/">Read more &rarr;</a>
+      </div>
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/collections-clerk.mp4" aria-label="Demo: Collections Clerk"></video>
+        <h3>Collections Clerk</h3>
+        <p>Chases your aged receivables account by account, and tracks every promise until it's paid.</p>
+        <a class="more" href="/automations/collections-clerk/">Read more &rarr;</a>
+      </div>
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/slab-offer-desk.mp4" aria-label="Demo: Slab Offer Desk"></video>
+        <h3>Slab Offer Desk</h3>
+        <p>Turns every supplier photo blast into an apples-to-apples price and drafts your answer the same day.</p>
+        <a class="more" href="/automations/slab-offer-desk/">Read more &rarr;</a>
+      </div>
+    </div>
+
+    <p class="iceberg-tail">There are twelve more where these came from. <a class="more" href="/automations/">All automations &rarr;</a></p>
+  </section>
+
+  <section>
     <h2>Everyone opens a different email.</h2>
-    <p class="section-lede">Every seat gets its own briefing, built from its own book, <strong>ranked by what it's worth</strong>. Nothing to log into, nothing to learn — and nothing goes out without an OK.</p>
+    <p class="section-lede">Every seat gets its own briefing, built from that person's own book and <strong>sorted by the dollars at stake</strong>. There's nothing to install and nothing to learn. Your people just get an email, and nothing goes out without an OK.</p>
 
     <div class="seats">
       <div class="seat">
         <span class="to">To: You</span>
-        <p><strong>The whole yard.</strong> Every leak — and whether yesterday's flags got worked.</p>
+        <p><strong>The whole yard:</strong> every leak, plus whether yesterday's flags actually got worked.</p>
       </div>
       <div class="seat">
         <span class="to">To: Each rep</span>
-        <p><strong>Their book, sorted by money.</strong> Quiet accounts, unanswered proformas, expiring holds — follow-ups drafted in their name.</p>
+        <p><strong>Their book, sorted by money:</strong> quiet accounts, unanswered proformas, holds about to expire. The follow-ups come drafted in their name.</p>
       </div>
       <div class="seat">
         <span class="to">To: The office</span>
-        <p><strong>Who to call today.</strong> The invoices worth the most, expiring certs, accounts to pause before pickup.</p>
+        <p><strong>Who to call today:</strong> the invoices worth the most, certs about to expire, and which accounts to pause before their next pickup.</p>
       </div>
       <div class="seat">
         <span class="to">To: Purchasing</span>
-        <p><strong>What's on the water, what's running thin.</strong> Track &amp; trace, arrival notices matched to POs, reorder drafts, quarry orders to chase.</p>
+        <p><strong>What's on the water and what's running thin:</strong> track &amp; trace on every container, arrival notices matched to their POs, reorder drafts, and the quarry orders that need chasing.</p>
       </div>
       <div class="seat">
         <span class="to">To: The warehouse</span>
-        <p><strong>Which trucks go where.</strong> Tomorrow's delivery plan from open pick tickets, loading worksheets in load order, sold orders with no truck date flagged.</p>
+        <p><strong>Which trucks go where:</strong> tomorrow's delivery plan built from open pick tickets, loading worksheets in load order, and a flag on anything sold that still has no truck date.</p>
       </div>
     </div>
 
-    <p class="iceberg-tail">Tip of the iceberg — markdowns, win-backs, discount drift, lot-mismatch warnings, receiving claims. Ask for the full sheet.</p>
+    <p class="iceberg-tail">That's maybe a third of the list. Markdowns, win-backs, discount drift, lot mismatches, receiving claims... ask for the full sheet.</p>
   </section>
 
   <section>
     <h2>Hit reply.</h2>
-    <p class="section-lede">The morning email is a line to the clerk behind it. <strong>Anything you'd do in your system one screen at a time, say in a sentence.</strong></p>
+    <p class="section-lede">The morning email is a line to the clerk behind it. <strong>Anything you'd normally do in your system one screen at a time, you can just ask for in a sentence.</strong></p>
 
     <div class="asks">
       <div class="ask">Price 3cm Taj Mahal for Elite Granite — their tier, delivered.</div>
@@ -505,50 +532,23 @@
       <div class="ask">Collection notices to everyone past 60 days — skip the two on payment plans.</div>
     </div>
 
-    <p class="asks-tail">Each comes back done or drafted — bundles found, buyers matched, forty emails queued for your OK.</p>
+    <p class="asks-tail">Each one comes back done or drafted: bundles found, buyers matched, forty emails sitting in the queue for your OK.</p>
 
-    <p class="asks-tail"><strong>It takes attachments, too.</strong> Forward a proforma and packing list — the PO is entered line by line. Forward the invoice — matched, mismatches flagged. Forward the freight bill — booked into landed cost. <strong>The typing is the clerk's job now.</strong></p>
+    <p class="asks-tail"><strong>It takes attachments too.</strong> Forward a proforma and packing list and the PO gets entered line by line. Forward the supplier's invoice and it gets matched against that PO, with anything off flagged. Freight bills get booked into landed cost. <strong>The typing is the clerk's job now.</strong></p>
 
-    <video class="demo" autoplay muted loop playsinline preload="metadata" src="assets/clerk-demo.mp4" aria-label="Demo: forwarding supplier docs to SlabClerk, which enters the PO, arms track and trace, and assigns the carrier — awaiting your OK"></video>
-  </section>
-
-  <section>
-    <h2>Watch it work.</h2>
-
-    <div class="autos">
-      <div class="auto">
-        <video autoplay muted loop playsinline preload="metadata" src="assets/container-watchdog.mp4" aria-label="Demo: Container Watchdog"></video>
-        <h3>Container Watchdog</h3>
-        <p>Track &amp; trace on every box — and the demurrage clock beaten before it starts.</p>
-        <a class="more" href="/automations/container-watchdog/">Read more &rarr;</a>
-      </div>
-      <div class="auto">
-        <video autoplay muted loop playsinline preload="metadata" src="assets/collections-clerk.mp4" aria-label="Demo: Collections Clerk"></video>
-        <h3>Collections Clerk</h3>
-        <p>Your aged receivables, chased account by account — drafted nightly, tracked to paid.</p>
-        <a class="more" href="/automations/collections-clerk/">Read more &rarr;</a>
-      </div>
-      <div class="auto">
-        <video autoplay muted loop playsinline preload="metadata" src="assets/slab-offer-desk.mp4" aria-label="Demo: Slab Offer Desk"></video>
-        <h3>Slab Offer Desk</h3>
-        <p>Every supplier offer, priced apples-to-apples and answered the same day.</p>
-        <a class="more" href="/automations/slab-offer-desk/">Read more &rarr;</a>
-      </div>
-    </div>
-
-    <p class="iceberg-tail">Twelve more where these came from — <a class="more" href="/automations/">all automations &rarr;</a></p>
+    <video class="demo" autoplay muted loop playsinline preload="metadata" src="assets/clerk-demo.mp4" aria-label="Demo: forwarding supplier docs to SlabClerk, which enters the PO, arms track and trace, and assigns the carrier, awaiting your OK"></video>
   </section>
 
   <section>
     <h2>Runs on what you already run.</h2>
     <ul class="fit-list">
-      <li><strong>No rip-and-replace.</strong> It reads the slab platform you already pay for. Nothing to migrate, nothing for your team to learn. Setup in days.</li>
-      <li><strong>Speaks slab.</strong> Bundles, serials, blocks, lots, holds, proformas, pick tickets, landed cost.</li>
-      <li><strong>Draft-first.</strong> It only sends or writes what you've approved — and every action is logged.</li>
+      <li><strong>No rip-and-replace.</strong> It reads the slab platform you already pay for, so there's nothing to migrate and nothing new for your team to learn. Setup takes days.</li>
+      <li><strong>Speaks slab:</strong> bundles, serials, blocks, lots, holds, proformas, pick tickets, landed cost.</li>
+      <li><strong>Draft-first.</strong> It only sends or writes what you've approved, and it logs everything it does.</li>
     </ul>
 
     <div class="note">
-      <p>Eight years running ops and IT inside my family's stone distribution business — same platform, same proformas, same aging report nobody had time to open. <strong>I built this for our yard first.</strong> Now I set it up for other importers, a few at a time, personally.</p>
+      <p>I spent eight years running ops and IT inside my family's stone distribution business. Same platform most importers run, same proformas, same aging report nobody had time to open. <strong>I built this for our yard first.</strong> Now I set it up for other importers, a few at a time, personally.</p>
       <p class="sig">Dhruv Kar</p>
       <p class="sig-role">Founder, SlabClerk</p>
     </div>
@@ -556,10 +556,10 @@
 
   <div class="closing" id="walkthrough">
     <h2>Bring your yard. I'll show you what's leaking.</h2>
-    <p class="section-lede">One working session. Your morning report, built from your own data — and you ask it your own questions, live, before you pay for anything. <strong>If nothing's leaking, you'll sleep better. If something is, you'll know by morning.</strong></p>
+    <p class="section-lede">One working session. We build your morning report from your own data, you ask it your own questions live, and you don't pay for any of it. <strong>If nothing's leaking, you'll sleep better. If something is, you'll know by morning.</strong></p>
     <div class="cta-row">
       <a class="btn" href="#walkthrough">Book a walkthrough</a>
-      <span class="cta-note">Limited setups per month — every yard is wired up personally</span>
+      <span class="cta-note">Limited setups per month. Every yard is wired up personally.</span>
     </div>
   </div>
 
