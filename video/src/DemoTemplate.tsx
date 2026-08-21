@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Sequence,
   interpolate,
   spring,
   useCurrentFrame,
@@ -40,14 +41,16 @@ export type DemoConfig = {
   bodyText: string;
   items: DemoItem[];
   stampText: string;
+  switchLabel?: string;
 };
 
 export const timing = (config: DemoConfig) => {
+  const switchDur = config.switchLabel ? 110 : 0;
   const scene1End = config.mode === "compose" ? 200 : 115;
   const firstItem = scene1End + 25;
   const lastItem = firstItem + (config.items.length - 1) * 33;
   const stampAt = lastItem + 35;
-  return { scene1End, firstItem, stampAt, duration: stampAt + 60 };
+  return { switchDur, scene1End, firstItem, stampAt, duration: switchDur + stampAt + 60 };
 };
 
 const Chip: React.FC<{ label: string; appearAt: number }> = ({
@@ -360,11 +363,127 @@ const ChecklistScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
   );
 };
 
+const SwitchScene: React.FC<{ label: string; dur: number }> = ({
+  label,
+  dur,
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const flip = spring({ frame: frame - 30, fps, config: { damping: 13 } });
+  const on = frame >= 30;
+  const knobX = on ? flip * 64 : 0;
+  const enter = spring({ frame, fps, config: { damping: 16 } });
+  const laterIn = interpolate(frame, [62, 74], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const exit = interpolate(frame, [dur - 18, dur], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  return (
+    <AbsoluteFill
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: 1 - exit,
+        transform: `translateY(${exit * -40}px)`,
+      }}
+    >
+      <div
+        style={{
+          opacity: enter,
+          transform: `translateY(${(1 - enter) * 30}px)`,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 34,
+        }}
+      >
+        <div
+          style={{
+            fontFamily: MONO,
+            fontWeight: 600,
+            fontSize: 26,
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: C.ink,
+          }}
+        >
+          {label}
+        </div>
+        <div
+          style={{
+            width: 132,
+            height: 68,
+            border: `3px solid ${C.ink}`,
+            background: on ? C.stamp : C.reportBg,
+            position: "relative",
+            transition: "none",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: 6,
+              left: 6 + knobX,
+              width: 50,
+              height: 50,
+              background: C.card,
+              border: `3px solid ${C.ink}`,
+            }}
+          />
+        </div>
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: 20,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: on ? C.stamp : C.faint,
+            fontWeight: 600,
+          }}
+        >
+          {on ? "On · runs nightly" : "Off"}
+        </div>
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: 19,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: C.soft,
+            opacity: laterIn,
+            marginTop: 10,
+          }}
+        >
+          Three weeks later&hellip;
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 export const Demo: React.FC<{ config: DemoConfig }> = ({ config }) => {
+  const t = timing(config);
   return (
     <AbsoluteFill style={{ background: C.paper }}>
-      <EmailScene config={config} />
-      <ChecklistScene config={config} />
+      {config.switchLabel ? (
+        <>
+          <Sequence from={0} durationInFrames={t.switchDur}>
+            <SwitchScene label={config.switchLabel} dur={t.switchDur} />
+          </Sequence>
+          <Sequence from={t.switchDur}>
+            <EmailScene config={config} />
+            <ChecklistScene config={config} />
+          </Sequence>
+        </>
+      ) : (
+        <>
+          <EmailScene config={config} />
+          <ChecklistScene config={config} />
+        </>
+      )}
     </AbsoluteFill>
   );
 };

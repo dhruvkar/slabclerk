@@ -19,6 +19,7 @@ export const containerWatchdog: DemoConfig = {
     { text: "Open orders waiting on this box notified", detail: "2 orders" },
   ],
   stampText: "Awaiting your OK",
+  switchLabel: "Container Watchdog",
 };
 
 export const collectionsClerk: DemoConfig = {
@@ -61,6 +62,7 @@ export const slabOfferDesk: DemoConfig = {
     { text: "Closeup request queued — veining unclear", detail: "drafted" },
   ],
   stampText: "Awaiting your OK",
+  switchLabel: "Slab Offer Desk",
 };
 
 export const poEntry: DemoConfig = {

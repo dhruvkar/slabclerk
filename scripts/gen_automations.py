@@ -106,6 +106,28 @@ CSS = """
     font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--ink-faint); display: flex; justify-content: space-between;
     gap: 1rem; flex-wrap: wrap; }
+  .board { margin-top: 2.75rem; border: 1px solid var(--rule-strong); background: var(--report-bg); box-shadow: 0 12px 32px var(--shadow); }
+  .board-head { padding: 0.85rem 1.4rem; border-bottom: 1px solid var(--rule-strong);
+    font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-soft); display: flex; justify-content: space-between; }
+  .board-head b { color: var(--ink); font-weight: 600; }
+  .board-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+    gap: 1px; background: var(--rule); }
+  .cell { background: var(--report-bg); padding: 1rem 1.2rem; display: flex; align-items: center;
+    gap: 0.9rem; text-decoration: none; border: none; font: inherit; text-align: left; cursor: pointer; }
+  a.cell:hover .cell-label, button.cell:hover .cell-label { color: var(--stamp); }
+  .sw { width: 2.4rem; height: 1.3rem; border: 2px solid var(--ink); background: var(--report-bg);
+    position: relative; flex-shrink: 0; }
+  .sw::after { content: ""; position: absolute; top: 0.1rem; left: 0.1rem; width: 0.85rem; height: 0.85rem;
+    background: var(--paper); border: 2px solid var(--ink); transition: left 0.15s ease, background 0.15s ease; }
+  .cell.on .sw { background: var(--stamp); }
+  .cell.on .sw::after { left: 1.15rem; }
+  .cell-label { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink); line-height: 1.4; }
+  .cell .state { display: block; font-size: 0.68rem; color: var(--ink-faint); letter-spacing: 0.1em; }
+  .cell.on .state { color: var(--stamp); }
+  .board-foot { padding: 0.8rem 1.4rem; border-top: 1px solid var(--rule-strong);
+    font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-faint); }
   .index-list { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; }
   .index-list li { border-bottom: 1px solid var(--rule); padding: 1.5rem 0; }
   .index-list li:last-child { border-bottom: none; }
@@ -138,6 +160,11 @@ HEAD = """<!doctype html>
 """
 
 FOOT = """
+  <script>
+    document.querySelectorAll("button.cell").forEach(function (b) {
+      b.addEventListener("click", function () { b.classList.toggle("on"); });
+    });
+  </script>
   <footer>
     <span>SlabClerk</span>
     <span>Watching the yard since it was ours</span>
@@ -200,7 +227,29 @@ def index_html():
         + f"""
   <div class="hero">
     <h1>What the clerk handles.</h1>
-    <p class="lede">Each of these was watched in a real importer's inbox before it was built. <strong>There are twelve more on the full sheet; ask on the walkthrough.</strong></p>
+    <p class="lede">Each of these was watched in a real importer's inbox before it was built. <strong>Flip one on and it runs every night from then on.</strong> You only email the clerk to check in or ask for something extra.</p>
+  </div>
+
+  <div class="board">
+    <div class="board-head"><span><b>Switchboard</b></span><span>4 of 15 shown running</span></div>
+    <div class="board-grid">
+      <a class="cell on" href="/automations/container-watchdog/"><span class="sw"></span><span class="cell-label">Container Watchdog<span class="state">On &middot; watch it work</span></span></a>
+      <a class="cell on" href="/automations/collections-clerk/"><span class="sw"></span><span class="cell-label">Collections Clerk<span class="state">On &middot; watch it work</span></span></a>
+      <a class="cell on" href="/automations/slab-offer-desk/"><span class="sw"></span><span class="cell-label">Slab Offer Desk<span class="state">On &middot; watch it work</span></span></a>
+      <a class="cell on" href="/#po-entry"><span class="sw"></span><span class="cell-label">PO Entry<span class="state">On &middot; watch it work</span></span></a>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Hold Sentry<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Dunning Responder<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Friday AP Run<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Proof of Payment<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Truck Desk<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Price Integrity<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Credit Desk<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Doc Sender<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Slab List Replies<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Sales Scoreboard<span class="state">Ask on the walkthrough</span></span></button>
+      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Daily Brief<span class="state">Ask on the walkthrough</span></span></button>
+    </div>
+    <div class="board-foot">The greyed switches exist. They get flipped on during your setup, yard by yard.</div>
   </div>
 
   <ul class="index-list">
