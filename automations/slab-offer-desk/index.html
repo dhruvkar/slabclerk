@@ -90,6 +90,18 @@
   .cell.on .state { color: var(--stamp); }
   .board-foot { padding: 0.8rem 1.4rem; border-top: 1px solid var(--rule-strong);
     font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-faint); }
+  .receipt { margin-top: 3.25rem; border: 1px solid var(--rule-strong); background: var(--report-bg);
+    box-shadow: 0 12px 32px var(--shadow); overflow-x: auto; }
+  .receipt table { border-collapse: collapse; width: 100%; min-width: 38rem;
+    font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; line-height: 1.5;
+    font-variant-numeric: tabular-nums; }
+  .receipt td { padding: 0.6rem 1.4rem; border-bottom: 1px solid var(--rule); vertical-align: top; white-space: nowrap; }
+  .receipt tr:last-child td { border-bottom: none; }
+  .receipt .cat { color: var(--stamp); font-weight: 600; letter-spacing: 0.06em; width: 9.5rem; }
+  .receipt .detail { color: var(--ink); white-space: normal; min-width: 16rem; }
+  .receipt .flag { color: var(--ink-soft); text-align: right; }
+  .receipt-lede { max-width: 40rem; color: var(--ink-soft); margin: 3.25rem 0 0; }
+  .receipt-lede strong { color: var(--ink); font-weight: 600; }
   .index-list { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; }
   .index-list li { border-bottom: 1px solid var(--rule); padding: 1.5rem 0; }
   .index-list li:last-child { border-bottom: none; }

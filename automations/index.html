@@ -90,6 +90,18 @@
   .cell.on .state { color: var(--stamp); }
   .board-foot { padding: 0.8rem 1.4rem; border-top: 1px solid var(--rule-strong);
     font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-faint); }
+  .receipt { margin-top: 3.25rem; border: 1px solid var(--rule-strong); background: var(--report-bg);
+    box-shadow: 0 12px 32px var(--shadow); overflow-x: auto; }
+  .receipt table { border-collapse: collapse; width: 100%; min-width: 38rem;
+    font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; line-height: 1.5;
+    font-variant-numeric: tabular-nums; }
+  .receipt td { padding: 0.6rem 1.4rem; border-bottom: 1px solid var(--rule); vertical-align: top; white-space: nowrap; }
+  .receipt tr:last-child td { border-bottom: none; }
+  .receipt .cat { color: var(--stamp); font-weight: 600; letter-spacing: 0.06em; width: 9.5rem; }
+  .receipt .detail { color: var(--ink); white-space: normal; min-width: 16rem; }
+  .receipt .flag { color: var(--ink-soft); text-align: right; }
+  .receipt-lede { max-width: 40rem; color: var(--ink-soft); margin: 3.25rem 0 0; }
+  .receipt-lede strong { color: var(--ink); font-weight: 600; }
   .index-list { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; }
   .index-list li { border-bottom: 1px solid var(--rule); padding: 1.5rem 0; }
   .index-list li:last-child { border-bottom: none; }
@@ -133,6 +145,20 @@
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Daily Brief<span class="state">Ask on the walkthrough</span></span></button>
     </div>
     <div class="board-foot">The greyed switches exist. They get flipped on during your setup, yard by yard.</div>
+  </div>
+
+  <p class="receipt-lede">Once they're on, this is what checking in looks like. <strong>Not a dashboard. One email on Friday.</strong></p>
+
+  <div class="receipt">
+    <div class="board-head"><span><b>Weekly check-in</b> &mdash; Friday 4:30 PM</span><span>sample</span></div>
+    <table>
+      <tr><td class="cat">CONTAINERS</td><td class="detail">14 chased end to end</td><td class="flag">0 demurrage days</td></tr>
+      <tr><td class="cat">COLLECTIONS</td><td class="detail">$18,400 in, 3 promises kept</td><td class="flag">2 escalated to you</td></tr>
+      <tr><td class="cat">POS ENTERED</td><td class="detail">4 from supplier docs, line by line</td><td class="flag">312 slabs</td></tr>
+      <tr><td class="cat">HOLDS</td><td class="detail">5 confirmed, 3 released back to the racks</td><td class="flag">8 checked</td></tr>
+      <tr><td class="cat">OFFERS</td><td class="detail">9 priced, 2 counters sent</td><td class="flag">1 lot bought</td></tr>
+      <tr><td class="cat">YOUR PART</td><td class="detail">It needed you twice this week, for two OKs</td><td class="flag">4 minutes</td></tr>
+    </table>
   </div>
 
   <ul class="index-list">
