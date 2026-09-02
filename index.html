@@ -226,6 +226,36 @@
   }
   .section-lede strong { color: var(--ink); font-weight: 600; }
 
+
+  /* jobs strip */
+  .jobs { margin: 3.25rem 0 4rem; border-top: 1px solid var(--rule-strong); padding-top: 1rem; }
+  .jobs-head {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    font-family: "IBM Plex Mono", monospace; font-size: 0.78rem;
+    letter-spacing: 0.05em; color: var(--ink-faint); text-transform: uppercase;
+  }
+  .jobs-head b { color: var(--ink); font-weight: 600; }
+  .jobs-grid {
+    margin-top: 1rem; display: grid; gap: 0 1.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  }
+  .job {
+    display: flex; align-items: baseline; gap: 0.6rem;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.97rem; color: var(--ink-soft); text-decoration: none;
+  }
+  a.job:hover { color: var(--stamp); }
+  .job .dot {
+    width: 0.45rem; height: 0.45rem; flex: none; border-radius: 50%;
+    background: var(--rule-strong);
+  }
+  .job.live .dot { background: var(--stamp); }
+  .job.live { color: var(--ink); font-weight: 600; }
+  .jobs-tail {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.78rem;
+    letter-spacing: 0.05em; color: var(--ink-faint); margin: 1rem 0 0;
+  }
+
   /* seats */
   .seats { margin-top: 2.75rem; display: grid; }
   .seat {
@@ -416,9 +446,31 @@
     <h1>Your yard just got a night&nbsp;shift.</h1>
     <p class="lede">SlabClerk does the back-office work overnight: it chases your containers and your receivables, enters POs from supplier docs, prices supplier offers, and plans tomorrow's trucks. By 7am, <strong>every seat in the company has an email with what it did and what's waiting on an OK.</strong></p>
     <div class="cta-row">
-      <a class="btn" href="#walkthrough">See your own numbers</a>
+      <a class="btn" href="https://wa.me/13145506372">See your own numbers</a>
       <span class="cta-note">One walkthrough · your data, not a slideshow</span>
     </div>
+  </div>
+
+  <div class="jobs">
+    <div class="jobs-head"><span><b>The desk it works</b></span><span>4 running &middot; 11 on the board</span></div>
+    <div class="jobs-grid">
+      <a class="job live" href="/automations/slab-offer-desk/"><span class="dot"></span>Slab Offer Desk</a>
+      <a class="job live" href="/#po-entry"><span class="dot"></span>PO Entry</a>
+      <a class="job live" href="/automations/container-watchdog/"><span class="dot"></span>Container Watchdog</a>
+      <a class="job live" href="/automations/collections-clerk/"><span class="dot"></span>Collections Clerk</a>
+      <span class="job"><span class="dot"></span>Truck Desk</span>
+      <span class="job"><span class="dot"></span>Price Integrity</span>
+      <span class="job"><span class="dot"></span>Credit Desk</span>
+      <span class="job"><span class="dot"></span>Dunning Responder</span>
+      <span class="job"><span class="dot"></span>Proof of Payment</span>
+      <span class="job"><span class="dot"></span>Friday AP Run</span>
+      <span class="job"><span class="dot"></span>Doc Sender</span>
+      <span class="job"><span class="dot"></span>Hold Sentry</span>
+      <span class="job"><span class="dot"></span>Slab List Replies</span>
+      <span class="job"><span class="dot"></span>Sales Scoreboard</span>
+      <span class="job"><span class="dot"></span>Daily Brief</span>
+    </div>
+    <p class="jobs-tail">Every one of these came out of a real importer's inbox. <a class="more" href="/automations/">See the board &rarr;</a></p>
   </div>
 
   <div class="report-frame">
@@ -559,7 +611,7 @@
     <h2>Bring your yard. See what it would've done last night.</h2>
     <p class="section-lede">One working session. We point the clerk at your own data for a single night, and you read the morning report and the drafts it comes back with before you pay for anything. <strong>If nothing's leaking, you'll sleep better. If something is, you'll know by morning.</strong></p>
     <div class="cta-row">
-      <a class="btn" href="#walkthrough">Book a walkthrough</a>
+      <a class="btn" href="https://wa.me/13145506372">Book a walkthrough</a>
       <span class="cta-note">Limited setups per month. Every yard is wired up personally.</span>
     </div>
   </div>
