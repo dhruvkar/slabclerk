@@ -12,9 +12,9 @@ PAGES = [
         "video": "/assets/container-watchdog.mp4",
         "bullets": [
             ("Reads arrival notices as they land.", "It matches container, PO, and HBL to your system the minute the forwarder's email arrives."),
-            ("Counts down the free days.", "It works out the last free day from the notice itself, so you hear about the clock days ahead instead of finding it on a demurrage bill."),
+            ("Counts down the free days.", "It works out the last free day from the notice itself. You hear about the clock days early, while there is still time to move the box."),
             ("Chases the whole cycle.", "ETA changes, pickup numbers, drayage, empty returns. Everything gets drafted and sent on your OK."),
-            ("Knows what's waiting.", "Every open order tied to the box, so a slipped sailing tells the right customer, not just you."),
+            ("Knows what's waiting.", "Every open order tied to the box, so a slipped sailing reaches the customer who is waiting on it."),
         ],
         "evidence": "At one four-branch importer we studied, the owner's reply to a demurrage invoice was three words and three exclamation points. The charges had already accrued before anyone saw the clock. The watchdog counts free days from the arrival notice, not from the bill.",
     },
@@ -27,7 +27,7 @@ PAGES = [
             ("One drafted email per account.", "Invoice rows and links pulled from your system, in your voice, addressed to the person who owes you."),
             ("Routed to the rep who owns the account.", "Your office copied, so collections and sales stop working from different lists."),
             ("Promises tracked.", "Follow-ups fire on day 7 and day 14 automatically; payment plans and disputes are excluded without being told twice."),
-            ("Escalates only silence.", "You see the accounts that ignored three notes, not the forty that needed one."),
+            ("Escalates only silence.", "You see the accounts that ignored three notes."),
         ],
         "evidence": "One owner we watched sat down and hand-typed forty collection emails in a single day, each one built from aged-invoice rows he copied out of the ERP. Then he spent two weeks chasing the replies himself. That whole cycle is a nightly draft run now.",
     },
@@ -233,7 +233,7 @@ def index_html():
     return (
         HEAD.format(
             title="SlabClerk Automations",
-            desc="What the clerk handles — each automation watched in a real importer's inbox before it was built.",
+            desc="What the clerk handles. Each automation was watched in a real importer's inbox before it was built.",
             css=CSS,
         )
         + f"""
@@ -267,7 +267,7 @@ def index_html():
   <p class="receipt-lede">Once they're on, this is what checking in looks like. <strong>Not a dashboard. One email on Friday.</strong></p>
 
   <div class="receipt">
-    <div class="board-head"><span><b>Weekly check-in</b> &mdash; Friday 4:30 PM</span><span>sample</span></div>
+    <div class="board-head"><span><b>Weekly check-in</b> &middot; Friday 4:30 PM</span><span>sample</span></div>
     <table>
       <tr><td class="cat">CONTAINERS</td><td class="detail">14 chased end to end</td><td class="flag">0 demurrage days</td></tr>
       <tr><td class="cat">COLLECTIONS</td><td class="detail">$18,400 in, 3 promises kept</td><td class="flag">2 escalated to you</td></tr>
