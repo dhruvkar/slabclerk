@@ -213,7 +213,7 @@ def page_html(p):
   </div>
 
   <div class="cta-row">
-    <a class="btn" href="/#walkthrough">Book a walkthrough</a>
+    <a class="btn" href="https://cal.com/dhruvkar/30min">Book a walkthrough</a>
     <a class="more" href="/automations/">&larr; All automations</a>
   </div>
 """
@@ -283,7 +283,7 @@ def index_html():
   </ul>
 
   <div class="cta-row">
-    <a class="btn" href="/#walkthrough">Book a walkthrough</a>
+    <a class="btn" href="https://cal.com/dhruvkar/30min">Book a walkthrough</a>
     <a class="more" href="/">&larr; SlabClerk home</a>
   </div>
 """
