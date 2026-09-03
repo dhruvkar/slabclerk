@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="What the clerk handles. Each automation was watched in a real importer's inbox before it was built.">
+<meta name="description" content="Answers the price, size and availability email the same hour, with the photos and their price already in it.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#129704;</text></svg>">
-<title>SlabClerk Automations</title>
+<title>Slab Desk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,500;10..72,600;10..72,700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
@@ -121,83 +121,29 @@
   </header>
 
   <div class="hero">
-    <h1>What the clerk handles.</h1>
-    <p class="lede">Each of these was watched in a real importer's inbox before it was built. <strong>Flip one on and it runs every night from then on.</strong> You only email the clerk to check in or ask for something extra.</p>
+    <h1>Slab Desk</h1>
+    <p class="lede">Answers the price, size and availability email the same hour, with the photos and their price already in it.</p>
   </div>
 
-  <div class="board">
-    <div class="board-head"><span><b>Switchboard</b></span><span>7 of 16 shown running</span></div>
-    <div class="board-grid">
-      <a class="cell on" href="/automations/hold-sentry/"><span class="sw"></span><span class="cell-label">Hold Sentry<span class="state">On &middot; watch it work</span></span></a>
-      <a class="cell on" href="/automations/slab-desk/"><span class="sw"></span><span class="cell-label">Slab Desk<span class="state">On &middot; watch it work</span></span></a>
-      <a class="cell on" href="/automations/new-arrivals/"><span class="sw"></span><span class="cell-label">New Arrivals<span class="state">On &middot; watch it work</span></span></a>
-      <a class="cell on" href="/automations/container-watchdog/"><span class="sw"></span><span class="cell-label">Container Watchdog<span class="state">On &middot; watch it work</span></span></a>
-      <a class="cell on" href="/automations/collections-clerk/"><span class="sw"></span><span class="cell-label">Collections Clerk<span class="state">On &middot; watch it work</span></span></a>
-      <a class="cell on" href="/automations/slab-offer-desk/"><span class="sw"></span><span class="cell-label">Slab Offer Desk<span class="state">On &middot; watch it work</span></span></a>
-      <a class="cell on" href="/#po-entry"><span class="sw"></span><span class="cell-label">PO Entry<span class="state">On &middot; watch it work</span></span></a>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Dunning Responder<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Friday AP Run<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Proof of Payment<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Truck Desk<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Price Integrity<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Credit Desk<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Doc Sender<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Sales Scoreboard<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Daily Brief<span class="state">Ask on the walkthrough</span></span></button>
-    </div>
-    <div class="board-foot">The greyed switches exist. They get flipped on during your setup, yard by yard.</div>
+  <video class="demo" autoplay muted loop playsinline preload="metadata" src="/assets/slab-desk.mp4" aria-label="Demo: Slab Desk"></video>
+
+  <section>
+    <ul class="fit-list">
+      <li><strong>Reads the ask.</strong> Color, finish, thickness and the job behind it, however the customer phrased it.</li>
+      <li><strong>Looks at the floor.</strong> Bundles actually in the yard, with the slab count and the real sizes off each one.</li>
+      <li><strong>Prices it for that customer.</strong> Their tier, their freight, delivered. Look-alikes in the same range get added when the color is running thin.</li>
+      <li><strong>Drafts the whole reply.</strong> Photos attached. Nothing sends until you say so.</li>
+    </ul>
+  </section>
+
+  <div class="note">
+    <span class="label">Seen in the wild</span>
+    Six of every ten emails the reps we studied opened was a version of the same request: do you have it, what does it cost, send photos. One rep answered it so often she had taken to emailing slab photo links to herself, three a day for ninety days, so she could forward them off her phone.
   </div>
-
-  <p class="receipt-lede">Once they're on, this is what checking in looks like. <strong>Not a dashboard. One email on Friday.</strong></p>
-
-  <div class="receipt">
-    <div class="board-head"><span><b>Weekly check-in</b> &middot; Friday 4:30 PM</span><span>sample</span></div>
-    <table>
-      <tr><td class="cat">CONTAINERS</td><td class="detail">14 chased end to end</td><td class="flag">0 demurrage days</td></tr>
-      <tr><td class="cat">COLLECTIONS</td><td class="detail">$18,400 in, 3 promises kept</td><td class="flag">2 escalated to you</td></tr>
-      <tr><td class="cat">POS ENTERED</td><td class="detail">4 from supplier docs, line by line</td><td class="flag">312 slabs</td></tr>
-      <tr><td class="cat">HOLDS</td><td class="detail">5 confirmed, 3 released back to the racks</td><td class="flag">8 checked</td></tr>
-      <tr><td class="cat">OFFERS</td><td class="detail">9 priced, 2 counters sent</td><td class="flag">1 lot bought</td></tr>
-      <tr><td class="cat">YOUR PART</td><td class="detail">It needed you twice this week, for two OKs</td><td class="flag">4 minutes</td></tr>
-    </table>
-  </div>
-
-  <ul class="index-list">
-      <li>
-        <h2><a href="/automations/hold-sentry/">Hold Sentry</a></h2>
-        <p>Sweeps every open hold, checks the slabs are still there, and drafts the chase in the rep's name.</p>
-        <a class="more" href="/automations/hold-sentry/">Watch it work &rarr;</a>
-      </li>
-      <li>
-        <h2><a href="/automations/slab-desk/">Slab Desk</a></h2>
-        <p>Answers the price, size and availability email the same hour, with the photos and their price already in it.</p>
-        <a class="more" href="/automations/slab-desk/">Watch it work &rarr;</a>
-      </li>
-      <li>
-        <h2><a href="/automations/new-arrivals/">New Arrivals</a></h2>
-        <p>Matches every landed box to the accounts that wanted those colors, split by whose book it is.</p>
-        <a class="more" href="/automations/new-arrivals/">Watch it work &rarr;</a>
-      </li>
-      <li>
-        <h2><a href="/automations/container-watchdog/">Container Watchdog</a></h2>
-        <p>Every box tracked, and the demurrage clock counted down before it costs you money.</p>
-        <a class="more" href="/automations/container-watchdog/">Watch it work &rarr;</a>
-      </li>
-      <li>
-        <h2><a href="/automations/collections-clerk/">Collections Clerk</a></h2>
-        <p>Chases your aged receivables account by account, and tracks every promise until it's paid.</p>
-        <a class="more" href="/automations/collections-clerk/">Watch it work &rarr;</a>
-      </li>
-      <li>
-        <h2><a href="/automations/slab-offer-desk/">Slab Offer Desk</a></h2>
-        <p>Turns every supplier photo blast into an apples-to-apples price and drafts your answer the same day.</p>
-        <a class="more" href="/automations/slab-offer-desk/">Watch it work &rarr;</a>
-      </li>
-  </ul>
 
   <div class="cta-row">
     <a class="btn" href="https://cal.com/dhruvkar/30min">Book a walkthrough</a>
-    <a class="more" href="/">&larr; SlabClerk home</a>
+    <a class="more" href="/automations/">&larr; All automations</a>
   </div>
 
   <script>

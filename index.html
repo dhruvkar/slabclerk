@@ -227,6 +227,9 @@
   .section-lede strong { color: var(--ink); font-weight: 600; }
 
 
+  #dropped .fit-list { margin-top: 2rem; }
+  #dropped .autos { margin-top: 3rem; }
+
   /* jobs strip */
   .jobs { margin: 3.25rem 0 4rem; border-top: 1px solid var(--rule-strong); padding-top: 1rem; }
   .jobs-head {
@@ -443,17 +446,43 @@
   </header>
 
   <div class="hero">
-    <h1>Your yard just got a night&nbsp;shift.</h1>
-    <p class="lede">SlabClerk works your back office overnight. It chases the containers and the receivables. It enters POs off supplier docs, prices the offers that came in, and plans tomorrow's trucks. By 7am, <strong>every seat has an email: what it did, and what needs an OK.</strong></p>
+    <h1>Nothing got dropped last&nbsp;night.</h1>
+    <p class="lede">SlabClerk works the follow-through nobody has time for. Overnight it chases the holds and quotes that went quiet. It answers the price-and-availability email, tracks the containers, and drafts the collection notes. By 7am, <strong>every seat has an email: what it did, and what needs an OK.</strong></p>
     <div class="cta-row">
       <a class="btn" href="https://cal.com/dhruvkar/30min">See your own numbers</a>
       <span class="cta-note">One walkthrough · run on your own data</span>
     </div>
   </div>
 
+  <section id="dropped">
+    <h2>Nobody chased it.</h2>
+    <p class="section-lede">Four sales reps at one importer put 504 holds on the floor in ninety days. Slabs pulled and reserved, each one with a customer's name on it.</p>
+    <p class="section-lede">397 of them went silent. Thirty-two ever got a follow-up.</p>
+    <p class="section-lede">Quotes ran the same way. 306 went out, four in five were never answered, one in ten got chased.</p>
+    <p class="section-lede"><strong>Every one of those was an order somebody already wanted.</strong></p>
+
+    <ul class="fit-list">
+      <li><strong>Holds get chased before they rot.</strong> Day 3, day 7, day 14. The note goes out with the bundle numbers and what&rsquo;s still on the floor, drafted in the rep&rsquo;s name. Expiring holds land back with the person who placed them.</li>
+      <li><strong>&ldquo;Pics, price, size&rdquo; gets answered the same hour.</strong> Six of every ten emails your reps open is a lookup: do you have it, what does it cost, send photos. It comes back drafted with the bundle photos, the slab count, the dimensions, and that customer&rsquo;s price.</li>
+      <li><strong>When a container lands, the right customers hear about it.</strong> Each rep gets their own list. Who bought that color this year, who held it, who asked about it. A note per account, photos already attached.</li>
+    </ul>
+
+    <div class="autos">
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/hold-sentry.mp4" aria-label="Demo: Hold Sentry sweeping every open hold, confirming slabs are still on the floor and drafting the chase in the rep&rsquo;s name"></video>
+        <h3>Hold Sentry</h3>
+        <p>Sweeps every open hold, checks the slabs are still there, and drafts the chase in the rep&rsquo;s name.</p>
+        <a class="more" href="/automations/hold-sentry/">Read more &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <div class="jobs">
-    <div class="jobs-head"><span><b>The desk it works</b></span><span>4 running &middot; 11 on the board</span></div>
+    <div class="jobs-head"><span><b>The desk it works</b></span><span>7 running &middot; 9 on the board</span></div>
     <div class="jobs-grid">
+      <a class="job live" href="/automations/hold-sentry/"><span class="dot"></span>Hold Sentry</a>
+      <a class="job live" href="/automations/slab-desk/"><span class="dot"></span>Slab Desk</a>
+      <a class="job live" href="/automations/new-arrivals/"><span class="dot"></span>New Arrivals</a>
       <a class="job live" href="/automations/slab-offer-desk/"><span class="dot"></span>Slab Offer Desk</a>
       <a class="job live" href="/#po-entry"><span class="dot"></span>PO Entry</a>
       <a class="job live" href="/automations/container-watchdog/"><span class="dot"></span>Container Watchdog</a>
@@ -465,8 +494,6 @@
       <span class="job"><span class="dot"></span>Proof of Payment</span>
       <span class="job"><span class="dot"></span>Friday AP Run</span>
       <span class="job"><span class="dot"></span>Doc Sender</span>
-      <span class="job"><span class="dot"></span>Hold Sentry</span>
-      <span class="job"><span class="dot"></span>Slab List Replies</span>
       <span class="job"><span class="dot"></span>Sales Scoreboard</span>
       <span class="job"><span class="dot"></span>Daily Brief</span>
     </div>
@@ -515,11 +542,60 @@
     </div>
   </div>
 
+  <div class="report-frame">
+    <div class="stamp">Sample</div>
+    <div class="report">
+      <div class="report-head">
+        <span><b>Morning report</b> &middot; rep's copy &middot; Tuesday 7:04 AM</span>
+        <span>5 items need your eyes</span>
+      </div>
+      <table>
+        <tr>
+          <td class="cat">HOLD EXPIRING</td>
+          <td class="detail">H-0452 &middot; Calacatta Lasa &middot; 3 slabs on the Meyer job &middot; "still need this?" drafted</td>
+          <td class="flag">11 days, no answer</td>
+        </tr>
+        <tr>
+          <td class="cat">QUOTE COLD</td>
+          <td class="detail">Q-1187 &middot; 4 bundles Taj Beach &middot; your price still stands</td>
+          <td class="flag">9 days, no reply</td>
+        </tr>
+        <tr>
+          <td class="cat">ASKED, UNANSWERED</td>
+          <td class="detail">Two emails wanting price and availability &middot; answers drafted</td>
+          <td class="flag">since Friday</td>
+        </tr>
+        <tr>
+          <td class="cat">ARRIVAL MATCH</td>
+          <td class="detail">Saturday's box has Lava Oro &middot; 6 accounts bought it this year &middot; notes drafted</td>
+          <td class="flag">awaiting your OK</td>
+        </tr>
+        <tr>
+          <td class="cat">GONE QUIET</td>
+          <td class="detail">Bought monthly through May, nothing since</td>
+          <td class="flag">118 days</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
   <section>
     <h2>Watch it work.</h2>
     <p class="section-lede">These run on their own every night once you flip them on. <strong>You only email the clerk to check in or ask for something extra.</strong></p>
 
     <div class="autos">
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/slab-desk.mp4" aria-label="Demo: Slab Desk answering a customer asking for photos, price and size, with bundles found, slab count, photos and the customer&rsquo;s price"></video>
+        <h3>Slab Desk</h3>
+        <p>Answers &ldquo;do you have it, what&rsquo;s it cost, send pics&rdquo; with the bundles, the slab count, the photos and their price.</p>
+        <a class="more" href="/automations/slab-desk/">Read more &rarr;</a>
+      </div>
+      <div class="auto">
+        <video autoplay muted loop playsinline preload="metadata" src="assets/new-arrivals.mp4" aria-label="Demo: New Arrivals matching a landed container to the accounts that asked for those colors and drafting a note per account"></video>
+        <h3>New Arrivals</h3>
+        <p>Matches every landed box to the accounts that wanted those colors, split by whose book it is.</p>
+        <a class="more" href="/automations/new-arrivals/">Read more &rarr;</a>
+      </div>
       <div class="auto">
         <video autoplay muted loop playsinline preload="metadata" src="assets/container-watchdog.mp4" aria-label="Demo: Container Watchdog"></video>
         <h3>Container Watchdog</h3>
@@ -540,7 +616,7 @@
       </div>
     </div>
 
-    <p class="iceberg-tail">There are twelve more where these came from. <a class="more" href="/automations/">All automations &rarr;</a></p>
+    <p class="iceberg-tail">There are nine more where these came from. <a class="more" href="/automations/">All automations &rarr;</a></p>
   </section>
 
   <section>
@@ -549,12 +625,12 @@
 
     <div class="seats">
       <div class="seat">
-        <span class="to">To: You</span>
-        <p><strong>The whole yard:</strong> every leak, plus whether yesterday's flags actually got worked.</p>
-      </div>
-      <div class="seat">
         <span class="to">To: Each rep</span>
         <p><strong>Their book, sorted by money:</strong> quiet accounts, unanswered proformas, holds about to expire. The follow-ups come drafted in their name.</p>
+      </div>
+      <div class="seat">
+        <span class="to">To: You</span>
+        <p><strong>The whole yard:</strong> every leak, plus whether yesterday's flags actually got worked.</p>
       </div>
       <div class="seat">
         <span class="to">To: The office</span>
@@ -582,6 +658,7 @@
       <div class="ask">What did we actually clear on the last Alaska White container, landed?</div>
       <div class="ask">Raise Fantasy Brown 2cm list 6% and send the reps the new sheet.</div>
       <div class="ask">Offer the 280-day bundles at 20% off to every fabricator who's bought quartzite this year.</div>
+      <div class="ask">Which holds are over ten days old with no answer? Draft the follow-ups.</div>
       <div class="ask">Collection notices to everyone past 60 days. Skip the two on payment plans.</div>
     </div>
 

@@ -2,7 +2,15 @@ import React from "react";
 import { Composition } from "remotion";
 import { ClerkDemo } from "./ClerkDemo";
 import { Demo, timing, DemoConfig } from "./DemoTemplate";
-import { containerWatchdog, collectionsClerk, slabOfferDesk, poEntry } from "./demos";
+import {
+  containerWatchdog,
+  collectionsClerk,
+  slabOfferDesk,
+  poEntry,
+  slabDesk,
+  holdSentry,
+  newArrivals,
+} from "./demos";
 
 const demoComp = (id: string, config: DemoConfig) => (
   <Composition
@@ -31,6 +39,9 @@ export const Root: React.FC = () => {
       {demoComp("ContainerWatchdog", containerWatchdog)}
       {demoComp("CollectionsClerk", collectionsClerk)}
       {demoComp("SlabOfferDesk", slabOfferDesk)}
+      {demoComp("SlabDesk", slabDesk)}
+      {demoComp("HoldSentry", holdSentry)}
+      {demoComp("NewArrivals", newArrivals)}
     </>
   );
 };

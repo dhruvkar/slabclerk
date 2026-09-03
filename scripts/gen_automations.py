@@ -6,6 +6,45 @@ import os, html
 
 PAGES = [
     {
+        "slug": "hold-sentry",
+        "title": "Hold Sentry",
+        "lede": "Sweeps every open hold, checks the slabs are still there, and drafts the chase in the rep's name.",
+        "video": "/assets/hold-sentry.mp4",
+        "bullets": [
+            ("Knows which holds went quiet.", "Age counted from the day the hold sheet went out."),
+            ("Checks the slabs are still there.", "A hold on material that already shipped gets closed."),
+            ("Chases in the rep's name.", "Bundle numbers, what's still on the floor, and a note that reads like the rep wrote it."),
+            ("Answers extensions.", "Held to the new date, expiry re-armed, confirmation drafted back to the customer."),
+        ],
+        "evidence": "Four reps at one importer put 504 holds on the floor in ninety days. Three hundred ninety-seven of them went silent, and thirty-two ever got a follow-up. Every one of those was a slab pulled off the rack with a customer's name on it.",
+    },
+    {
+        "slug": "slab-desk",
+        "title": "Slab Desk",
+        "lede": "Answers the price, size and availability email the same hour, with the photos and their price already in it.",
+        "video": "/assets/slab-desk.mp4",
+        "bullets": [
+            ("Reads the ask.", "Color, finish, thickness and the job behind it, however the customer phrased it."),
+            ("Looks at the floor.", "Bundles actually in the yard, with the slab count and the real sizes off each one."),
+            ("Prices it for that customer.", "Their tier, their freight, delivered. Look-alikes in the same range get added when the color is running thin."),
+            ("Drafts the whole reply.", "Photos attached. Nothing sends until you say so."),
+        ],
+        "evidence": "Six of every ten emails the reps we studied opened was a version of the same request: do you have it, what does it cost, send photos. One rep answered it so often she had taken to emailing slab photo links to herself, three a day for ninety days, so she could forward them off her phone.",
+    },
+    {
+        "slug": "new-arrivals",
+        "title": "New Arrivals",
+        "lede": "Matches every landed box to the accounts that wanted those colors, split by whose book it is.",
+        "video": "/assets/new-arrivals.mp4",
+        "bullets": [
+            ("Triggers off receiving.", "The box is racked and counted, so the note goes out while the material is actually sellable."),
+            ("Matches on twelve months of wanting.", "Who bought that color, who held it, and who asked and got told no."),
+            ("Split by whose book it is.", "Each rep gets their own accounts. Nobody sends a company-wide blast."),
+            ("One note per account.", "Their price, bundle photos attached, drafted and waiting on an OK."),
+        ],
+        "evidence": "Across ninety days of one importer's sales mail, the reps sent almost nothing announcing new material. The purchasing side sent three hundred and twelve emails about incoming containers, and all of it stayed internal. The stone landed and the customers who had asked for it never heard.",
+    },
+    {
         "slug": "container-watchdog",
         "title": "Container Watchdog",
         "lede": "Every box tracked, and the demurrage clock counted down before it costs you money.",
@@ -243,13 +282,15 @@ def index_html():
   </div>
 
   <div class="board">
-    <div class="board-head"><span><b>Switchboard</b></span><span>4 of 15 shown running</span></div>
+    <div class="board-head"><span><b>Switchboard</b></span><span>7 of 16 shown running</span></div>
     <div class="board-grid">
+      <a class="cell on" href="/automations/hold-sentry/"><span class="sw"></span><span class="cell-label">Hold Sentry<span class="state">On &middot; watch it work</span></span></a>
+      <a class="cell on" href="/automations/slab-desk/"><span class="sw"></span><span class="cell-label">Slab Desk<span class="state">On &middot; watch it work</span></span></a>
+      <a class="cell on" href="/automations/new-arrivals/"><span class="sw"></span><span class="cell-label">New Arrivals<span class="state">On &middot; watch it work</span></span></a>
       <a class="cell on" href="/automations/container-watchdog/"><span class="sw"></span><span class="cell-label">Container Watchdog<span class="state">On &middot; watch it work</span></span></a>
       <a class="cell on" href="/automations/collections-clerk/"><span class="sw"></span><span class="cell-label">Collections Clerk<span class="state">On &middot; watch it work</span></span></a>
       <a class="cell on" href="/automations/slab-offer-desk/"><span class="sw"></span><span class="cell-label">Slab Offer Desk<span class="state">On &middot; watch it work</span></span></a>
       <a class="cell on" href="/#po-entry"><span class="sw"></span><span class="cell-label">PO Entry<span class="state">On &middot; watch it work</span></span></a>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Hold Sentry<span class="state">Ask on the walkthrough</span></span></button>
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Dunning Responder<span class="state">Ask on the walkthrough</span></span></button>
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Friday AP Run<span class="state">Ask on the walkthrough</span></span></button>
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Proof of Payment<span class="state">Ask on the walkthrough</span></span></button>
@@ -257,7 +298,6 @@ def index_html():
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Price Integrity<span class="state">Ask on the walkthrough</span></span></button>
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Credit Desk<span class="state">Ask on the walkthrough</span></span></button>
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Doc Sender<span class="state">Ask on the walkthrough</span></span></button>
-      <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Slab List Replies<span class="state">Ask on the walkthrough</span></span></button>
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Sales Scoreboard<span class="state">Ask on the walkthrough</span></span></button>
       <button class="cell" type="button"><span class="sw"></span><span class="cell-label">Daily Brief<span class="state">Ask on the walkthrough</span></span></button>
     </div>

@@ -85,3 +85,69 @@ export const poEntry: DemoConfig = {
   ],
   stampText: "Awaiting your OK",
 };
+
+export const slabDesk: DemoConfig = {
+  mode: "incoming",
+  headerLeft: "Incoming",
+  headerRight: "8:12 AM",
+  fieldLabel: "From:",
+  fieldValue: "susan@midwestcabinet.com",
+  subject: "Coffee Brown — pics price size please",
+  chips: [],
+  bodyText:
+    "Customer coming in Thursday. Need to know what you've got and what it costs.",
+  items: [
+    { text: "Bundles found on the floor", detail: "3 · C-260188" },
+    { text: "Slab count and sizes pulled", detail: "26 slabs" },
+    { text: "Bundle photos attached", detail: "3 sets" },
+    { text: "Her tier priced, delivered", detail: "$14.25/sqft" },
+    { text: "Two look-alikes in stock added", detail: "same range" },
+    { text: "Reply drafted with all of it", detail: "for your OK" },
+  ],
+  stampText: "Awaiting your OK",
+  switchLabel: "Slab Desk",
+};
+
+export const holdSentry: DemoConfig = {
+  mode: "incoming",
+  headerLeft: "Nightly sweep",
+  headerRight: "2:12 AM",
+  fieldLabel: "Reading:",
+  fieldValue: "every open hold in the yard",
+  subject: "41 holds on the floor — 12 have gone quiet",
+  chips: [],
+  bodyText:
+    "Slabs reserved against a customer's name, with no answer since the hold sheet went out.",
+  items: [
+    { text: "H-0452 · Calacatta Lasa · 3 slabs", detail: "11 days, no answer" },
+    { text: "Slabs confirmed still on the floor", detail: "3 of 3" },
+    { text: "Chase drafted in the rep's name", detail: "\"still need this?\"" },
+    { text: "Extension request answered", detail: "held to Sep 17" },
+    { text: "Aged past your policy, sent to the owner", detail: "2 holds" },
+    { text: "Day 7 and day 14 follow-ups armed", detail: "12 holds" },
+  ],
+  stampText: "Awaiting your OK",
+  switchLabel: "Hold Sentry",
+};
+
+export const newArrivals: DemoConfig = {
+  mode: "incoming",
+  headerLeft: "Incoming",
+  headerRight: "6:03 AM",
+  fieldLabel: "From:",
+  fieldValue: "warehouse@yourcompany.com",
+  subject: "Container unloaded — 22 bundles received",
+  chips: ["receiving_C-260412.pdf"],
+  bodyText:
+    "Box is off the chassis and racked. Lava Oro, Taj Beach, Blue Dunes, Sparkle White.",
+  items: [
+    { text: "Bundles received and racked", detail: "22 · 4 colors" },
+    { text: "Matched to twelve months of asks", detail: "31 accounts" },
+    { text: "Two asked for Lava Oro in June", detail: "flagged first" },
+    { text: "Split by whose book it is", detail: "5 reps" },
+    { text: "Photos pulled per bundle", detail: "22 sets" },
+    { text: "One note drafted per account, their price", detail: "31 drafts" },
+  ],
+  stampText: "Awaiting your OK",
+  switchLabel: "New Arrivals",
+};
