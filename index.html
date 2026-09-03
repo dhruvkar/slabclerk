@@ -227,8 +227,17 @@
   .section-lede strong { color: var(--ink); font-weight: 600; }
 
 
+  /* four-up demo grid, directly under the hero */
+  .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.75rem; margin: 0 0 1rem; }
+  .tile video { display: block; width: 100%; border: 1px solid var(--rule-strong);
+    box-shadow: 0 12px 32px var(--shadow); background: var(--report-bg); }
+  .tile .kicker { display: block; margin: 1rem 0 0.3rem; font-family: "IBM Plex Mono", monospace;
+    font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stamp); }
+  .tile h3 { font-family: "Big Shoulders", "Arial Narrow", sans-serif; font-size: 1.5rem;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; margin: 0; }
+  .tile p { margin: 0.3rem 0 0.55rem; color: var(--ink-soft); font-size: 0.98rem; }
+  @media (max-width: 44rem) { .tiles { grid-template-columns: 1fr; gap: 2rem; } }
   #dropped .report-frame { margin: 3rem 0 0; }
-  #dropped .autos { margin-top: 3.25rem; }
 
   /* jobs strip */
   .jobs { margin: 3.25rem 0 4rem; border-top: 1px solid var(--rule-strong); padding-top: 1rem; }
@@ -454,6 +463,37 @@
     </div>
   </div>
 
+  <div class="tiles">
+    <div class="tile">
+      <video autoplay muted loop playsinline preload="metadata" src="assets/slab-desk-mini.mp4" aria-label="Demo: a customer asks for Coffee Brown photos, price and size; the clerk finds the bundles, pulls the slab count, prices her tier and drafts the reply"></video>
+      <span class="kicker">Sales</span>
+      <h3>Slab Desk</h3>
+      <p>Answers &ldquo;do you have it, what&rsquo;s it cost, send pics&rdquo; with the bundles, the count and their price.</p>
+      <a class="more" href="/automations/slab-desk/">Read more &rarr;</a>
+    </div>
+    <div class="tile">
+      <video autoplay muted loop playsinline preload="metadata" src="assets/hold-sentry-mini.mp4" aria-label="Demo: the nightly sweep finds twelve holds gone quiet, confirms the slabs are still on the floor and drafts the chase"></video>
+      <span class="kicker">Sales</span>
+      <h3>Hold Sentry</h3>
+      <p>Chases the holds that went quiet, after checking the slabs are still on the floor.</p>
+      <a class="more" href="/automations/hold-sentry/">Read more &rarr;</a>
+    </div>
+    <div class="tile">
+      <video autoplay muted loop playsinline preload="metadata" src="assets/container-watchdog-mini.mp4" aria-label="Demo: an arrival notice arrives, the clerk matches the PO, computes the last free day, requests the pickup number and notifies waiting orders"></video>
+      <span class="kicker">Back office</span>
+      <h3>Container Watchdog</h3>
+      <p>Counts the free days off the arrival notice, so the demurrage clock never runs out unseen.</p>
+      <a class="more" href="/automations/container-watchdog/">Read more &rarr;</a>
+    </div>
+    <div class="tile">
+      <video autoplay muted loop playsinline preload="metadata" src="assets/collections-clerk-mini.mp4" aria-label="Demo: asked for collection notices past sixty days, the clerk pulls the accounts, skips payment plans, drafts one email each and arms the follow-ups"></video>
+      <span class="kicker">Back office</span>
+      <h3>Collections Clerk</h3>
+      <p>One drafted note per aged account, routed to the rep who owns it, follow-ups armed.</p>
+      <a class="more" href="/automations/collections-clerk/">Read more &rarr;</a>
+    </div>
+  </div>
+
   <section id="dropped">
     <h2>Nobody chased it.</h2>
     <p class="section-lede">Four reps at one importer put 504 holds on the floor in ninety days. 397 went silent. Thirty-two ever got a follow-up.</p>
@@ -496,14 +536,6 @@
       </div>
     </div>
 
-    <div class="autos">
-      <div class="auto">
-        <video autoplay muted loop playsinline preload="metadata" src="assets/slab-desk.mp4" aria-label="Demo: Slab Desk answering a customer asking for photos, price and size, with bundles found, slab count, photos and the customer&rsquo;s price"></video>
-        <h3>Slab Desk</h3>
-        <p>Answers &ldquo;do you have it, what&rsquo;s it cost, send pics&rdquo; with the bundles, the slab count, the photos and their price.</p>
-        <a class="more" href="/automations/slab-desk/">Read more &rarr;</a>
-      </div>
-    </div>
   </section>
 
   <div class="jobs">
@@ -578,28 +610,10 @@
 
     <div class="autos">
       <div class="auto">
-        <video autoplay muted loop playsinline preload="metadata" src="assets/hold-sentry.mp4" aria-label="Demo: Hold Sentry sweeping every open hold, confirming slabs are still on the floor and drafting the chase in the rep&rsquo;s name"></video>
-        <h3>Hold Sentry</h3>
-        <p>Sweeps every open hold, checks the slabs are still there, and drafts the chase in the rep&rsquo;s name.</p>
-        <a class="more" href="/automations/hold-sentry/">Read more &rarr;</a>
-      </div>
-      <div class="auto">
         <video autoplay muted loop playsinline preload="metadata" src="assets/new-arrivals.mp4" aria-label="Demo: New Arrivals matching a landed container to the accounts that asked for those colors and drafting a note per account"></video>
         <h3>New Arrivals</h3>
         <p>Matches every landed box to the accounts that wanted those colors, split by whose book it is.</p>
         <a class="more" href="/automations/new-arrivals/">Read more &rarr;</a>
-      </div>
-      <div class="auto">
-        <video autoplay muted loop playsinline preload="metadata" src="assets/container-watchdog.mp4" aria-label="Demo: Container Watchdog"></video>
-        <h3>Container Watchdog</h3>
-        <p>Every box tracked, and the demurrage clock counted down before it costs you money.</p>
-        <a class="more" href="/automations/container-watchdog/">Read more &rarr;</a>
-      </div>
-      <div class="auto">
-        <video autoplay muted loop playsinline preload="metadata" src="assets/collections-clerk.mp4" aria-label="Demo: Collections Clerk"></video>
-        <h3>Collections Clerk</h3>
-        <p>Chases your aged receivables account by account, and tracks every promise until it's paid.</p>
-        <a class="more" href="/automations/collections-clerk/">Read more &rarr;</a>
       </div>
       <div class="auto">
         <video autoplay muted loop playsinline preload="metadata" src="assets/slab-offer-desk.mp4" aria-label="Demo: Slab Offer Desk"></video>

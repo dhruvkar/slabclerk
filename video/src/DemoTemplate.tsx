@@ -42,6 +42,8 @@ export type DemoConfig = {
   items: DemoItem[];
   stampText: string;
   switchLabel?: string;
+  /** Grid tile: narrower card, same absolute type, so text stays legible when scaled down. */
+  compact?: boolean;
 };
 
 export const timing = (config: DemoConfig) => {
@@ -123,7 +125,7 @@ const EmailScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
     >
       <div
         style={{
-          width: 980,
+          width: config.compact ? 700 : 980,
           background: C.card,
           border: `1px solid ${C.ruleStrong}`,
           boxShadow: "0 18px 48px rgba(27,32,37,0.12)",
@@ -301,7 +303,7 @@ const ChecklistScene: React.FC<{ config: DemoConfig }> = ({ config }) => {
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
       <div
         style={{
-          width: 1060,
+          width: config.compact ? 700 : 1060,
           background: C.reportBg,
           border: `1px solid ${C.ruleStrong}`,
           boxShadow: "0 18px 48px rgba(27,32,37,0.12)",

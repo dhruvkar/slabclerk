@@ -10,7 +10,23 @@ import {
   slabDesk,
   holdSentry,
   newArrivals,
+  slabDeskMini,
+  holdSentryMini,
+  containerWatchdogMini,
+  collectionsClerkMini,
 } from "./demos";
+
+const miniComp = (id: string, config: DemoConfig) => (
+  <Composition
+    id={id}
+    component={Demo}
+    durationInFrames={timing(config).duration}
+    fps={30}
+    width={780}
+    height={560}
+    defaultProps={{ config }}
+  />
+);
 
 const demoComp = (id: string, config: DemoConfig) => (
   <Composition
@@ -42,6 +58,10 @@ export const Root: React.FC = () => {
       {demoComp("SlabDesk", slabDesk)}
       {demoComp("HoldSentry", holdSentry)}
       {demoComp("NewArrivals", newArrivals)}
+      {miniComp("SlabDeskMini", slabDeskMini)}
+      {miniComp("HoldSentryMini", holdSentryMini)}
+      {miniComp("ContainerWatchdogMini", containerWatchdogMini)}
+      {miniComp("CollectionsClerkMini", collectionsClerkMini)}
     </>
   );
 };

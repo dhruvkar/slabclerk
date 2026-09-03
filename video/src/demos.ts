@@ -151,3 +151,81 @@ export const newArrivals: DemoConfig = {
   stampText: "Awaiting your OK",
   switchLabel: "New Arrivals",
 };
+
+// --- Grid tiles: 4 items, short strings, no cold-open switch. Rendered on a
+// --- 780x560 canvas so the type stays legible at 2-up grid size.
+export const slabDeskMini: DemoConfig = {
+  mode: "incoming",
+  headerLeft: "Incoming",
+  headerRight: "8:12 AM",
+  fieldLabel: "From:",
+  fieldValue: "susan@midwestcabinet.com",
+  subject: "Coffee Brown, pics price size",
+  chips: [],
+  bodyText: "Customer coming in Thursday. What have you got?",
+  items: [
+    { text: "3 bundles on the floor", detail: "C-260188" },
+    { text: "26 slabs, sizes pulled", detail: "photos" },
+    { text: "Priced at her tier", detail: "$14.25" },
+    { text: "Reply drafted", detail: "your OK" },
+  ],
+  stampText: "Awaiting your OK",
+  compact: true,
+};
+
+export const holdSentryMini: DemoConfig = {
+  mode: "incoming",
+  headerLeft: "Nightly sweep",
+  headerRight: "2:12 AM",
+  fieldLabel: "Reading:",
+  fieldValue: "every open hold",
+  subject: "12 holds have gone quiet",
+  chips: [],
+  bodyText: "Slabs reserved against a customer's name, no answer since.",
+  items: [
+    { text: "H-0452, 3 slabs", detail: "11 days" },
+    { text: "Still on the floor", detail: "3 of 3" },
+    { text: "Chase drafted", detail: "rep's name" },
+    { text: "Day 7 + 14 armed", detail: "12 holds" },
+  ],
+  stampText: "Awaiting your OK",
+  compact: true,
+};
+
+export const containerWatchdogMini: DemoConfig = {
+  mode: "incoming",
+  headerLeft: "Incoming",
+  headerRight: "2:47 AM",
+  fieldLabel: "From:",
+  fieldValue: "notices@yourforwarder.com",
+  subject: "Arrival Notice, TEMU4434211",
+  chips: ["arrival_notice.pdf"],
+  bodyText: "Kindly arrange pickup before last free day.",
+  items: [
+    { text: "Notice parsed, PO matched", detail: "260357" },
+    { text: "Last free day", detail: "Fri Aug 28" },
+    { text: "Pickup requested", detail: "drafted" },
+    { text: "2 orders waiting, told", detail: "sent" },
+  ],
+  stampText: "Awaiting your OK",
+  compact: true,
+};
+
+export const collectionsClerkMini: DemoConfig = {
+  mode: "compose",
+  headerLeft: "New message",
+  headerRight: "7:09 AM",
+  fieldLabel: "To:",
+  fieldValue: "clerk@slabclerk.com",
+  subject: "Re: Morning report",
+  chips: [],
+  bodyText: "Collection notices to everyone past 60 days. Skip the payment plans.",
+  items: [
+    { text: "14 accounts past 60", detail: "pulled" },
+    { text: "Payment plans skipped", detail: "2" },
+    { text: "12 emails drafted", detail: "per account" },
+    { text: "Day 7 + 14 follow-ups", detail: "armed" },
+  ],
+  stampText: "Awaiting your OK",
+  compact: true,
+};
